@@ -15,7 +15,12 @@ $show = substr($arrJson['events'][0]['message']['text'], 0, 1);
 $idcard = substr($arrJson['events'][0]['message']['text'], 1);
 if ($show == "$") {
     if ($idcard != "") {
-        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_prison.php?uid=" . $idcard;
+		
+	    $request = urlencode($idcard);
+	    $request1 = substr($request, 0, -9);
+        //$urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request1."&aid=".$text_output[1];
+		
+        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_prison.php?uid=" . $request1;
         $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
