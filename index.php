@@ -16,14 +16,16 @@ $idcard = substr($arrJson['events'][0]['message']['text'], 1);
 
 $id = $arrJson['events'][0]['source']['groupId'];
 
-if ($show == "$") {
+if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
+	
+	if ($show == "$") {
     if ($idcard != "") {
 		
 	    $request = urlencode($idcard);
-	    $request1 = substr($request, 0, -9);
+	    //$request1 = substr($request, 0, -9);
         //$urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request1."&aid=".$text_output[1];
 		
-        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_prison.php?uid=" . $request1;
+        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_prison.php?uid=" . $request;
         $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
@@ -105,6 +107,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close($ch);
+}
 ?>
 
 
