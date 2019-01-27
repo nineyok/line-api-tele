@@ -62,14 +62,14 @@ if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
         $arrPostData['messages'][0]['text'] = "คำค้น : ". $idcard . "\r\n"
-		        . "หมายเลขทะเบียน : " . $t_register ."\r\n"
+		        . "ทะเบียน : " . $t_register ."\r\n"
                 . "ลักษณะ : " . $t_nature . "\r\n"
 				. "ยี่ห้อ : " . $t_brand . "\r\n"
                 . "model : " . $t_model . "\r\n"
 				. "สี : " . $t_color . "\r\n"
                 . "เลขตัวรถ : " . $t_numcar . "\r\n"
-				. "เลขเครื่องยนต์ : " . $t_nummac . "\r\n"
-				. "ผู้ครอบครอง : " . $t_name . "\r\n"
+				. "เลขเครื่อง : " . $t_nummac . "\r\n"
+				. "ชื่อ-สกุล : " . $t_name . "\r\n"
 				. "เลขบัตร : " . $t_numid . "\r\n"
                 . "ที่อยู่ : " . $t_add ;
 	
