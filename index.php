@@ -13,6 +13,9 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 
 $show = substr($arrJson['events'][0]['message']['text'], 0, 1);
 $idcard = substr($arrJson['events'][0]['message']['text'], 1);
+
+$id = $arrJson['events'][0]['source']['groupId'];
+
 if ($show == "$") {
     if ($idcard != "") {
 		
@@ -73,8 +76,9 @@ if ($show == "$") {
       $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
       $arrPostData['messages'][0]['type'] = "text";
       $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล : ". $idcard . "\r\n"
+	                                                 . "id : " . $id ."\r\n"
 	                                                 . "request : " . $request ."\r\n"
-                                                     . "$request1 : " . $request1 ;													 
+                                                     . "request1 : " . $request1 ;													 
 	
 }
        
