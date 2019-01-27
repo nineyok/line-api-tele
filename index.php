@@ -57,9 +57,9 @@ if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
         $t_add = $arrbn_id[9]; // ที่อยู่
 		
 		
- if ($Topup_Name != ""){      
+ if ($t_register != ""){      
         $arrPostData = array();
-                $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+        $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
         $arrPostData['messages'][0]['text'] = "คำค้น : ". $idcard . "\r\n"
 		        . "หมายเลขทะเบียน : " . $t_register ."\r\n"
@@ -77,10 +77,7 @@ if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
      $arrPostData = array();
       $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
       $arrPostData['messages'][0]['type'] = "text";
-      $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล : ". $idcard . "\r\n"
-	                                                 . "id : " . $id ."\r\n"
-	                                                 . "request : " . $request ."\r\n"
-                                                     . "request1 : " . $request1 ;													 
+      $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล : ". $idcard ;													 
 	
 }
        
