@@ -72,7 +72,9 @@ if ($show == "$") {
      $arrPostData = array();
       $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
       $arrPostData['messages'][0]['type'] = "text";
-      $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล : ". $idcard ; 	
+      $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล : ". $idcard . "\r\n"
+	                                                 . "request : " . $request ."\r\n"
+                                                     . "$request1 : " . $request1 ;													 
 	
 }
        
