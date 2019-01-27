@@ -57,7 +57,7 @@ if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
         $t_add = $arrbn_id[9]; // ที่อยู่
 		
 		
- if ($t_register != ""){      
+ if ($t_nature != ""){      
         $arrPostData = array();
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
