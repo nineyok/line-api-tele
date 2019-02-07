@@ -16,7 +16,7 @@ $idcard = substr($arrJson['events'][0]['message']['text'], 1);
 
 $id = $arrJson['events'][0]['source']['groupId'];
 
-if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
+//if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
 	
 	if ($show == "$") {
     if ($idcard != "") {
@@ -25,7 +25,7 @@ if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
 	    //$request1 = substr($request, 0, -9);
         //$urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request1."&aid=".$text_output[1];
 		
-        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_prison.php?uid=" . $request;
+        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_emp.php?uid=" . $request;
         $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
@@ -45,33 +45,25 @@ if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
 
 
 
-	 $t_register = $arrbn_id[0];  //ทะเบียน
-        $t_nature = $arrbn_id[1]; //ลักษณะ
-        $t_brand = $arrbn_id[2]; // ยี่ห้อ
-        $t_model = $arrbn_id[3]; // โมเดล
-        $t_color = $arrbn_id[4]; // สี
-        $t_numcar = $arrbn_id[5]; // เลขรถ
-        $t_nummac = $arrbn_id[6]; // เลขเครื่อง
-        $t_name = $arrbn_id[7]; // ชื่อ
-		$t_numid = $arrbn_id[8]; // เลขบัตร
-        $t_add = $arrbn_id[9]; // ที่อยู่
+	    $t_id = $arrbn_id[0];  //id
+        $t_name = $arrbn_id[1]; //ชื่อ
+        $t_nickname = $arrbn_id[2]; // ชื่อเล่น
+        $t_tel = $arrbn_id[3]; // เบอร์โทร
+        $t_add = $arrbn_id[4]; // ที่อยู่
+        $t_emp = $arrbn_id[5]; // ประวัติการจับกุม
+ 
 		
 		
  if ($t_nature != ""){      
         $arrPostData = array();
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = "คำค้น : ". $idcard . "\r\n"
-		        . "ทะเบียน : " . $t_register ."\r\n"
-                . "ลักษณะ : " . $t_nature . "\r\n"
-				. "ยี่ห้อ : " . $t_brand . "\r\n"
-                . "model : " . $t_model . "\r\n"
-				. "สี : " . $t_color . "\r\n"
-                . "เลขตัวรถ : " . $t_numcar . "\r\n"
-				. "เลขเครื่อง : " . $t_nummac . "\r\n"
-				. "ชื่อ-สกุล : " . $t_name . "\r\n"
-				. "เลขบัตร : " . $t_numid . "\r\n"
-                . "ที่อยู่ : " . $t_add ;
+        $arrPostData['messages'][0]['text'] = "เลขบัตร : ". $idcard . "\r\n"
+		        . "ชื่อ-สกุล : " . $t_name ."\r\n"
+                . "ชื่อเล่น : " . $t_nickname . "\r\n"
+				. "เบอร์โทร : " . $t_tel . "\r\n"
+                . "ที่อยู่ : " . $t_add . "\r\n"
+				$t_emp;
 	
 }else{
      $arrPostData = array();
@@ -104,7 +96,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close($ch);
-}
+//}
 ?>
 
 
