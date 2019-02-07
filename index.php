@@ -65,13 +65,13 @@ $id = $arrJson['events'][0]['source']['groupId'];
 		       $arrPostData['messages'][0]['originalContentUrl'] = "https://www.kitsada.com/pic/1329900209422.jpg";
                $arrPostData['messages'][0]['previewImageUrl'] = "https://www.kitsada.com/pic/1329900209422.jpg";
 		
-        $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = "เลขบัตร : ". $idcard . "\r\n"
-		        . "ชื่อ-สกุล : " . $t_name ."\r\n"
-                . "ชื่อเล่น : " . $t_nickname . "\r\n"
-				. "เบอร์โทร : " . $t_tel . "\r\n"
-                . "ที่อยู่ : " . $t_add . "\r\n"
-				. "". $t_emp;
+        //$arrPostData['messages'][0]['type'] = "text";
+        //$arrPostData['messages'][0]['text'] = "เลขบัตร : ". $idcard . "\r\n"
+		        //. "ชื่อ-สกุล : " . $t_name ."\r\n"
+                //. "ชื่อเล่น : " . $t_nickname . "\r\n"
+				//. "เบอร์โทร : " . $t_tel . "\r\n"
+                //. "ที่อยู่ : " . $t_add . "\r\n"
+				//. "". $t_emp;
 	
 }else{
      $arrPostData = array();
