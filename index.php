@@ -54,7 +54,7 @@ $id = $arrJson['events'][0]['source']['groupId'];
  
 		
 		
- if ($t_nature != ""){      
+ if ($t_name != ""){      
         $arrPostData = array();
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
