@@ -57,6 +57,10 @@ $id = $arrJson['events'][0]['source']['groupId'];
  if ($t_name != ""){      
         $arrPostData = array();
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+		$arrPostData['messages'][0]['type'] = "image";
+        $arrPostData['messages'][0]['originalContentUrl'] = "https://vpn.idms.pw/finger/img_body/".$request."-".$t_id."/".$request."-front.jpg";
+		//"https://vpn.idms.pw/finger/img_body/".$request."-".$t_id."/".$request."-front.jpg"
+        $arrPostData['messages'][0]['previewImageUrl'] = "https://vpn.idms.pw/finger/img_body/".$request."-".$t_id."/".$request."-front.jpg";
         $arrPostData['messages'][0]['type'] = "text";
         $arrPostData['messages'][0]['text'] = "เลขบัตร : ". $idcard . "\r\n"
 		        . "ชื่อ-สกุล : " . $t_name ."\r\n"
