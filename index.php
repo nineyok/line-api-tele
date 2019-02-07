@@ -58,12 +58,12 @@ $id = $arrJson['events'][0]['source']['groupId'];
         $arrPostData = array();
         $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
 		$arrPostData['messages'][0]['type'] = "image";
-        //$arrPostData['messages'][0]['originalContentUrl'] = "https://vpn.idms.pw/finger/img_body/".$request."-".$t_id."/".$request."-front.jpg";
+        $arrPostData['messages'][0]['originalContentUrl'] = "https://vpn.idms.pw/finger/img_body/".$request."-".$t_id."/".$request."-front.jpg";
 		//"https://vpn.idms.pw/finger/img_body/".$request."-".$t_id."/".$request."-front.jpg"
-        //$arrPostData['messages'][0]['previewImageUrl'] = "https://vpn.idms.pw/finger/img_body/".$request."-".$t_id."/".$request."-front.jpg";
+        $arrPostData['messages'][0]['previewImageUrl'] = "https://vpn.idms.pw/finger/img_body/".$request."-".$t_id."/".$request."-front.jpg";
 		
-		       $arrPostData['messages'][0]['originalContentUrl'] = "https://www.kitsada.com/pic/1329900209422.jpg";
-               $arrPostData['messages'][0]['previewImageUrl'] = "https://www.kitsada.com/pic/1329900209422.jpg";
+		       //$arrPostData['messages'][0]['originalContentUrl'] = "https://www.kitsada.com/pic/1329900209422.jpg";
+               //$arrPostData['messages'][0]['previewImageUrl'] = "https://www.kitsada.com/pic/1329900209422.jpg";
 		
         //$arrPostData['messages'][0]['type'] = "text";
         //$arrPostData['messages'][0]['text'] = "เลขบัตร : ". $idcard . "\r\n"
