@@ -63,7 +63,7 @@ $id = $arrJson['events'][0]['source']['groupId'];
                 . "ชื่อเล่น : " . $t_nickname . "\r\n"
 				. "เบอร์โทร : " . $t_tel . "\r\n"
                 . "ที่อยู่ : " . $t_add . "\r\n"
-				$t_emp;
+				. "". $t_emp;
 	
 }else{
      $arrPostData = array();
