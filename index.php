@@ -13,19 +13,9 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 
 $show = substr($arrJson['events'][0]['message']['text'], 0, 1);
 $idcard = substr($arrJson['events'][0]['message']['text'], 1);
-
-$id = $arrJson['events'][0]['source']['groupId'];
-
-if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
-	
-	if ($show == "$") {
+if ($show == "$") {
     if ($idcard != "") {
-		
-	    $request = urlencode($idcard);
-	    //$request1 = substr($request, 0, -9);
-        //$urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request1."&aid=".$text_output[1];
-		
-        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_prison.php?uid=" . $request;
+        $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/selecttel.php?uid=" . $idcard;
         $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
@@ -33,7 +23,7 @@ if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
         $productivity = curl_exec($ch);
         curl_close($ch);
         //$json_a = json_decode($productivity, true);
-        $arrbn_id = explode("#", $productivity);
+        $arrbn_id = explode("$", $productivity);
         //print_r($arrbn_id);
 //        if (is_numeric(substr($arrbn_id[0], 0, 1))) {
 
@@ -45,39 +35,33 @@ if ($id == "C1687dfcb9fb7158edbaeffb34c7422e2"){
 
 
 
-	 $t_register = $arrbn_id[0];  //ทะเบียน
-        $t_nature = $arrbn_id[1]; //ลักษณะ
-        $t_brand = $arrbn_id[2]; // ยี่ห้อ
-        $t_model = $arrbn_id[3]; // โมเดล
-        $t_color = $arrbn_id[4]; // สี
-        $t_numcar = $arrbn_id[5]; // เลขรถ
-        $t_nummac = $arrbn_id[6]; // เลขเครื่อง
-        $t_name = $arrbn_id[7]; // ชื่อ
-		$t_numid = $arrbn_id[8]; // เลขบัตร
-        $t_add = $arrbn_id[9]; // ที่อยู่
-		
-		
- if ($t_nature != ""){      
+        $Mobile_Number = $arrbn_id[0]; //เบอร์โทร
+	    $Service_Type = $arrbn_id[1]; //เครือข่าย
+        $Start_date = $arrbn_id[2]; // วันที่
+		$Real_Service_Amount = $arrbn_id[3];  //จำนวนเงิน
+        $Topup_Name = $arrbn_id[4]; // รหัสตู้
+		$customer_name = $arrbn_id[5]; // ชื่อ
+		$City = $arrbn_id[6]; // อำเภอ
+		$province = $arrbn_id[7]; // จังหวัด		    
+ 
+ if ($Topup_Name != ""){      
         $arrPostData = array();
-        $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+                $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = "คำค้น : ". $idcard . "\r\n"
-		        . "ทะเบียน : " . $t_register ."\r\n"
-                . "ลักษณะ : " . $t_nature . "\r\n"
-				. "ยี่ห้อ : " . $t_brand . "\r\n"
-                . "model : " . $t_model . "\r\n"
-				. "สี : " . $t_color . "\r\n"
-                . "เลขตัวรถ : " . $t_numcar . "\r\n"
-				. "เลขเครื่อง : " . $t_nummac . "\r\n"
-				. "ชื่อ-สกุล : " . $t_name . "\r\n"
-				. "เลขบัตร : " . $t_numid . "\r\n"
-                . "ที่อยู่ : " . $t_add ;
+        $arrPostData['messages'][0]['text'] = "เบอร์โทร : ". $Mobile_Number . "\r\n"
+		        . "จำนวน : " . $Real_Service_Amount . "  บาท" ."\r\n"
+                . "เครือข่าย : " . $Service_Type . "\r\n"
+				. "เติมล่าสุด : " . $Start_date . "\r\n"
+                . "รหัสตู้ : " . $Topup_Name . "\r\n"
+				. "ชื่อ : " . $customer_name . "\r\n"
+                . "อำเภอ : " . $City . "\r\n"
+                . "จังหวัด : " . $province;
 	
 }else{
      $arrPostData = array();
       $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
       $arrPostData['messages'][0]['type'] = "text";
-      $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล : ". $idcard ;													 
+      $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล : ". $idcard ; 	
 	
 }
        
@@ -104,7 +88,6 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close($ch);
-}
 ?>
 
 
