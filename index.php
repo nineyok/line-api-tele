@@ -23,7 +23,7 @@ if ($show == "$") {
         $productivity = curl_exec($ch);
         curl_close($ch);
         //$json_a = json_decode($productivity, true);
-        $arrbn_id = explode("$", $productivity);
+        $arrbn_id = explode("#", $productivity);
         //print_r($arrbn_id);
 //        if (is_numeric(substr($arrbn_id[0], 0, 1))) {
 
