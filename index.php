@@ -23,7 +23,7 @@ if ($show == "$") {
         $productivity = curl_exec($ch);
         curl_close($ch);
         //$json_a = json_decode($productivity, true);
-        $arrbn_id = explode("#", $productivity);
+        $arrbn_id = explode("$", $productivity);
         //print_r($arrbn_id);
 //        if (is_numeric(substr($arrbn_id[0], 0, 1))) {
 
@@ -40,9 +40,9 @@ if ($show == "$") {
         $Start_date = $arrbn_id[2]; // วันที่
 		$Real_Service_Amount = $arrbn_id[3];  //จำนวนเงิน
         $Topup_Name = $arrbn_id[4]; // รหัสตู้
-		$customer_name = $arrbn_id[5]; // ชื่อ
-		$City = $arrbn_id[6]; // อำเภอ
-		$province = $arrbn_id[7]; // จังหวัด		    
+		$City = $arrbn_id[5]; // อำเภอ
+		$province = $arrbn_id[6]; // จังหวัด		
+        $customer_name = $arrbn_id[7]; // ชื่อ		
  
  if ($Topup_Name != ""){      
         $arrPostData = array();
@@ -55,14 +55,13 @@ if ($show == "$") {
                 . "รหัสตู้ : " . $Topup_Name . "\r\n"
 				. "ชื่อ : " . $customer_name . "\r\n"
                 . "อำเภอ : " . $City . "\r\n"
-                . "จังหวัด : " . $province ;
+                . "จังหวัด : " . $province;
 	
 }else{
      $arrPostData = array();
       $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
       $arrPostData['messages'][0]['type'] = "text";
-      //$arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล : ". $idcard ; 
-     $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล : ".$Mobile_Number ;
+      $arrPostData['messages'][0]['text'] = "ไม่พบข้อมูล : ". $idcard ; 	
 	
 }
        
