@@ -55,7 +55,7 @@ if ($show == "$") {
                 . "รหัสตู้ : " . $Topup_Name . "\r\n"
 				. "ชื่อ : " . $customer_name . "\r\n"
                 . "อำเภอ : " . $City . "\r\n"
-                . "จังหวัด : " . $province;
+                . "จังหวัด : " . $province ;
 	
 }else{
      $arrPostData = array();
