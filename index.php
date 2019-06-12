@@ -4,15 +4,12 @@ $strAccessToken = "nNoHchQKGEIQ2TVahOXh2fhXGU9d3lETBm/AaOGRYR9JPJrUxRiP0o+ZVV2Nh
 
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
-
 $strUrl = "https://api.line.me/v2/bot/message/reply";
-
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
-
-$strchk = substr($arrJson['events'][0]['message']['text'], 0, 1);
-$idcard = substr($arrJson['events'][0]['message']['text'], 1);
+$strexp = isset($_REQUEST['strexp']) ? $_REQUEST['strexp'] : '';
+$strexp = $arrJson['events'][0]['message']['text'];
 
 if($strchk[0]=="$"){
   $arrstr  = explode( "$" , $strexp );
@@ -28,7 +25,7 @@ if($strchk[0]=="$"){
             }
 	  if(is_numeric($idcard)){
 	     if ($idcard != "") {
-                   $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/selecttel.php?uid=" . $idcard;
+     $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/selecttel.php?uid=" . $idcard;
      $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
