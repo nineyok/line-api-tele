@@ -28,7 +28,7 @@ if($strchk[0]=="$"){
             }
 	  if(is_numeric($idcard)){
 	     if ($idcard != "") {
-     $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/selecttel.php?uid=" . $idcard;	 
+     $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/selecttel.php?uid=".$idcard;	 
      $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
