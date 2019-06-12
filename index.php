@@ -64,7 +64,7 @@ if($strchk[0]=="$"){
 		        . "จำนวน : " . $Real_Service_Amount . "  บาท" ."\r\n"
                 . "เครือข่าย : " . $Service_Type . "\r\n"
 				. "เติมล่าสุด : " . $Start_date . "\r\n"
-                . "รหัสตู้ : " . $Topup_Name . "\r\n"
+                . "รหัส : " . $Topup_Name . "\r\n"
 				. "ชื่อ : " . $customer_name . "\r\n"
                 . "ที่อยู่ : " . $addresscustomer . "\r\n"
                 . "พิกัด : https://www.google.co.th/maps/place/".$latitude.",".$longitude;
