@@ -53,9 +53,11 @@ if($strchk[0]=="$"){
         $Start_date = $arrbn_id[2]; // วันที่
 		$Real_Service_Amount = $arrbn_id[3];  //จำนวนเงิน
         $Topup_Name = $arrbn_id[4]; // รหัสตู้
-		$City = $arrbn_id[5]; // อำเภอ
-		$province = $arrbn_id[6]; // จังหวัด		
-        $customer_name = $arrbn_id[7]; // ชื่อ
+		$customer_name = $arrbn_id[5]; // ชื่อ
+		$latitude = $arrbn_id[6]; // lat
+		$longitude = $arrbn_id[7]; // lon
+        $addresscustomer = $arrbn_id[8]; // ที่อยู่		
+       
 		
 		$txt = "";
 		$txt = "เบอร์โทร : ". $Mobile_Number . "\r\n"
@@ -64,8 +66,8 @@ if($strchk[0]=="$"){
 				. "เติมล่าสุด : " . $Start_date . "\r\n"
                 . "รหัสตู้ : " . $Topup_Name . "\r\n"
 				. "ชื่อ : " . $customer_name . "\r\n"
-                . "อำเภอ : " . $City . "\r\n"
-                . "จังหวัด : " . $province;
+                . "ที่อยู่ : " . $addresscustomer . "\r\n"
+                . "พิกัด : https://www.google.co.th/maps/place/".$latitude.",".$longitude;
 		
 		  if($Topup_Name!=""){
                       $arrPostData = array();
