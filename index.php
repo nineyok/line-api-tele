@@ -10,6 +10,9 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $strexp = isset($_REQUEST['strexp']) ? $_REQUEST['strexp'] : '';
 $strexp = $arrJson['events'][0]['message']['text'];
+$strchk = str_split($strexp);
+
+$arrayloop = array();
 
 if($strchk[0]=="$"){
   $arrstr  = explode( "$" , $strexp );
