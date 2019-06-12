@@ -52,7 +52,7 @@ if($strchk[0]=="$"){
 	    $Service_Type = $arrbn_id[1]; //เครือข่าย
         $Start_date = $arrbn_id[2]; // วันที่
 		$Real_Service_Amount = $arrbn_id[3];  //จำนวนเงิน
-        $Topup_Name = substr($arrbn_id[4], -2); // รหัสตู้
+        $Topup_Name = substr($arrbn_id[4], 2); // รหัสตู้
 		$customer_name = $arrbn_id[5]; // ชื่อ
 		$latitude = $arrbn_id[6]; // lat
 		$longitude = $arrbn_id[7]; // lon
