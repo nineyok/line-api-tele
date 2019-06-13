@@ -28,7 +28,7 @@ if($strchk[0]=="$"){
             }
 	  if(is_numeric($idcard)){
 	     if ($idcard != "") {
-     $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/selecttel.php?uid=".$idcard;	 
+     $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_huaman.php?uid=".$idcard;	 
      $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
@@ -48,28 +48,14 @@ if($strchk[0]=="$"){
 
 
 
-        $Mobile_Number = $arrbn_id[0]; //เบอร์โทร
-	    $Service_Type = $arrbn_id[1]; //เครือข่าย
-        $Start_date = $arrbn_id[2]; // วันที่
-		$Real_Service_Amount = $arrbn_id[3];  //จำนวนเงิน
-        $Topup_Name = substr($arrbn_id[4], 2); // รหัสตู้
-		$customer_name = $arrbn_id[5]; // ชื่อ
-		$latitude = $arrbn_id[6]; // lat
-		$longitude = $arrbn_id[7]; // lon
-        $addresscustomer = $arrbn_id[8]; // ที่อยู่		
-       
+        $t_id = $arrbn_id[0]; //เลขบัตร
+	    $t_text = $arrbn_id[1]; //ประวัติการจับกุม
 		
 		$txt = "";
-		$txt = "เบอร์โทร : ". $Mobile_Number . "\r\n"
-		        . "จำนวน : " . $Real_Service_Amount . "  บาท" ."\r\n"
-                . "เครือข่าย : " . $Service_Type . "\r\n"
-				. "เติมล่าสุด : " . $Start_date . "\r\n"
-                . "รหัส : " . $Topup_Name . "\r\n"
-				. "ชื่อ : " . $customer_name . "\r\n"
-                . "ที่อยู่ : " . $addresscustomer . "\r\n"
-                . "พิกัด : https://www.google.co.th/maps/place/".$latitude.",".$longitude;
+		$txt = "เลขบัตร : ". $t_id . "\r\n"
+                . "" . $t_text;
 		
-		  if($Topup_Name!=""){
+		  if($t_text!=""){
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
                       $arrPostData["detail"] = $txt;
