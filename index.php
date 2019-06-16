@@ -13,7 +13,7 @@ $strexp = $arrJson['events'][0]['message']['text'];
 
    $id = $arrJson['events'][0]['source']['groupId'];
    
-   //if ($id == "C787c1d24b791fa24457c3101e5d050d5") {
+   if ($id == "Cc7400808e50a43c67c8672750581723b") {
 
 $strchk = str_split($strexp);
 
@@ -81,7 +81,7 @@ if($strchk[0]=="$"){
                       $arrPostData["status"] = $status;
                       array_push($arrayloop,$arrPostData);
                   }else{
-                    $txt = "ไม่พบข้อมูลที่ค้นหา : ".$id;
+                    $txt = "ไม่พบข้อมูลที่ค้นหา : ".$idcard;
                       
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
@@ -158,7 +158,7 @@ function getContentUrl($url) {
             curl_close ($ch);
             return $file;
           } 
-//}
+}
 ?>
 
 
