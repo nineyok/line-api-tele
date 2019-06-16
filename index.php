@@ -10,6 +10,11 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $strexp = isset($_REQUEST['strexp']) ? $_REQUEST['strexp'] : '';
 $strexp = $arrJson['events'][0]['message']['text'];
+
+   $id = $arrJson['events'][0]['source']['groupId'];
+   
+   //if ($id == "C787c1d24b791fa24457c3101e5d050d5") {
+
 $strchk = str_split($strexp);
 
 $arrayloop = array();
@@ -28,7 +33,7 @@ if($strchk[0]=="$"){
             }
 	  if(is_numeric($idcard)){
 	     if ($idcard != "") {
-     $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_huaman.php?uid=".$idcard;	 
+     $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/selecttel.php?uid=".$idcard;	 
      $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
@@ -48,21 +53,35 @@ if($strchk[0]=="$"){
 
 
 
-        $t_id = $arrbn_id[0]; //เลขบัตร
-	    $t_text = $arrbn_id[1]; //ประวัติการจับกุม
+        $Mobile_Number = $arrbn_id[0]; //เบอร์โทร
+	    $Service_Type = $arrbn_id[1]; //เครือข่าย
+        $Start_date = $arrbn_id[2]; // วันที่
+		$Real_Service_Amount = $arrbn_id[3];  //จำนวนเงิน
+        $Topup_Name = substr($arrbn_id[4], 2); // รหัสตู้
+		$customer_name = $arrbn_id[5]; // ชื่อ
+		$latitude = $arrbn_id[6]; // lat
+		$longitude = $arrbn_id[7]; // lon
+        $addresscustomer = $arrbn_id[8]; // ที่อยู่		
+       
 		
 		$txt = "";
-		$txt = "เลขบัตร : ". $t_id . "\r\n"
-                . "" . $t_text;
+		$txt = "เบอร์โทร : ". $Mobile_Number . "\r\n"
+		        . "จำนวน : " . $Real_Service_Amount . "  บาท" ."\r\n"
+                . "เครือข่าย : " . $Service_Type . "\r\n"
+				. "เติมล่าสุด : " . $Start_date . "\r\n"
+                . "รหัส : " . $Topup_Name . "\r\n"
+				. "ชื่อ : " . $customer_name . "\r\n"
+                . "ที่อยู่ : " . $addresscustomer . "\r\n"
+                . "พิกัด : https://www.google.co.th/maps/place/".$latitude.",".$longitude;
 		
-		  if($t_text!=""){
+		  if($Topup_Name!=""){
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
                       $arrPostData["detail"] = $txt;
                       $arrPostData["status"] = $status;
                       array_push($arrayloop,$arrPostData);
                   }else{
-                    $txt = "ไม่พบข้อมูลที่ค้นหา : ".$idcard;
+                    $txt = "ไม่พบข้อมูลที่ค้นหา : ".$id;
                       
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
@@ -139,6 +158,7 @@ function getContentUrl($url) {
             curl_close ($ch);
             return $file;
           } 
+//}
 ?>
 
 
