@@ -24,40 +24,44 @@ $jsonFlex = [
            [
             "type" => "box",
             "layout" => "baseline",
-            "margin" => "lg",
+            "margin" => "sm",
             "contents" => [
               [
-                "type" => "text",
-                "text" => "เบอร์โทร",
-				"flex" => 3,
-                //"align" => "start",
-                "color" => "#C3C3C3"
+                  "type"=> "text",
+                  "text"=> "เบอร์โทร",
+                  "flex"=> 3,
+                  "size"=> "sm",
+                  "weight"=> "bold",
+                  "color"=> "#FF0000"
               ],
               [
-                "type" => "text",
-                "text" => "0983628932",
-				"flex" => 5,
-                //"align" => "end",
-                "color" => "#000000"
+                  "type"=> "text",
+                  "text"=> "0983628932",
+                  "flex"=> 5,
+                  "size"=> "sm",
+                  "wrap"=> true
               ]
             ]
           ],
           [
             "type" => "box",
             "layout" => "baseline",
-            "margin" => "lg",
+            "margin" => "sm",
             "contents" => [
               [
-                "type" => "text",
-                "text" => "เครือข่าย",
-				"flex" => 3,
-                "color" => "#C3C3C3"
+                  "type"=> "text",
+                  "text"=> "จำนวน",
+                  "flex"=> 3,
+                  "size"=> "sm",
+                  "weight"=> "bold",
+                  "color"=> "#FF0000"
               ],
               [
-                "type" => "text",
-                "text" => "TRUE",
-				"flex" => 5,
-                //"align" => "end"
+                  "type"=> "text",
+                  "text"=> "20.00 บาท",
+                  "flex"=> 5,
+                  "size"=> "sm",
+                  "wrap"=> true
               ]
             ]
           ]
