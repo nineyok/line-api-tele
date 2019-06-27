@@ -11,6 +11,17 @@ $POST_HEADER = array('Content-Type: application/json', 'Authorization: Bearer ' 
 $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 
+$strexp = isset($_REQUEST['strexp']) ? $_REQUEST['strexp'] : '';
+$strexp = $request_array['events'][0]['message']['text'];
+
+$strchk = str_split($strexp);
+
+$arrayloop = array();
+
+if($strchk[0]=="$"){
+  $arrstr  = explode( "$" , $strexp );
+  for($k=1 ; $k < count( $arrstr ) ; $k++ ){
+
 $jsonFlex = [
     "type" => "flex",
     "altText" => "Hello Flex Message",
@@ -206,10 +217,12 @@ $jsonFlex = [
       ]
     ]
   ];
-
-
-
-
+array_push($arrayloop,$jsonFlex);
+  }
+}
+    foreach($arrayloop as $loop){
+if ( sizeof($request_array['events']) > 0 ) {
+    foreach ($request_array['events'] as $event) {
         error_log(json_encode($event));
         $reply_message = '';
         $reply_token = $event['replyToken'];
@@ -220,11 +233,18 @@ $jsonFlex = [
             'messages' => [$jsonFlex]
         ];
 
-        print_r($data);
+        //print_r($data);
 
         $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
 
         $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $post_body);
+
+        //echo "Result: ".$send_result."\r\n";
+        
+    }
+}
+	}
+//echo "OK";
 
 
 
