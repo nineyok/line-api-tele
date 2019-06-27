@@ -255,7 +255,8 @@ $num=0;
                 $arrPostData['messages'][$num] = [$detail]; */
                 
 
-        $arrPostData = json_encode($data, JSON_UNESCAPED_UNICODE);
+        //$arrPostData = json_encode($data, JSON_UNESCAPED_UNICODE);
+		$arrPostData = json_encode($data);
 
         
 $num++;
