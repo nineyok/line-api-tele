@@ -6,6 +6,12 @@ $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 $strexp = isset($_REQUEST['strexp']) ? $_REQUEST['strexp'] : '';
 $strexp = $request_array['events'][0]['message']['text'];
+
+   $id = $arrJson['events'][0]['source']['groupId'];
+   $u_id = $arrJson['events'][0]['source']['userId'];
+   
+   if (($id == "Cc7400808e50a43c67c8672750581723b")  OR ($u_id == "U3d1b9b9d84ba65ba1938c08fd6b056ee")){
+
 $strchk = str_split($strexp);
 $arrayloop = array();
 if($strchk[0]=="$"){
@@ -279,13 +285,13 @@ $txt = [
                   "weight"=> "bold",
                   "color"=> "#FF0000"
               ],
-                [
+              [
                   "type"=> "text",
                   "text"=> $idcard,
                   "flex"=> 3,
                   "size"=> "sm",
                   "wrap"=> true
-                ]
+              ]
 				  ]
 				  ]
 				  ]
@@ -324,6 +330,13 @@ $txt = [
                   "size"=> "sm",
                   "weight"=> "bold",
                   "color"=> "#FF0000"
+              ],
+              [
+                  "type"=> "text",
+                  "text"=> $idcard,
+                  "flex"=> 3,
+                  "size"=> "sm",
+                  "wrap"=> true
               ]
 				  ]
 				  ]
@@ -354,6 +367,7 @@ $num=0;
   }
 	}
 $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $arrPostData);
+}
 function send_reply_message($url, $post_header, $arrPostData)
 {
     $ch = curl_init($url);
