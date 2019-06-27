@@ -222,7 +222,7 @@ $jsonFlex = [
 array_push($arrayloop,$arrPostData);
   }
 }
-$event = $request_array['events'][0]['replyToken'];
+$arrPostData['replyToken'] = $request_array['events'][0]['replyToken'];
 $num=0;
     foreach($arrayloop as $loop){
 //if ( sizeof($request_array['events']) > 0 ) {
@@ -243,7 +243,7 @@ $num=0;
   if($detail != ""){
         $data = [
             //'replyToken' => $reply_token,
-			'replyToken' => $event,
+			//'replyToken' => $event,
             'messages' => [$detail]
         ];
 
