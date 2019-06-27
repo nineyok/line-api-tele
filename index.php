@@ -13,7 +13,7 @@ if($strchk[0]=="$"){
   for($k=1 ; $k < count( $arrstr ) ; $k++ ){
 $jsonFlex = [
     "type" => "flex",
-    "altText" => "Hello Flex Message",
+    "altText" => "Result",
     "contents" => [
       "type" => "bubble",
       "direction" => "ltr",
