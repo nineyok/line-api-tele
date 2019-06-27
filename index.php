@@ -21,178 +21,46 @@ $jsonFlex = [
         "type" => "box",
         "layout" => "vertical",
         "contents" => [
-         [
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                [
-                  "type": "text",
-                  "text": "เบอร์โทร",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000"
-                ],
-                [
-                  "type": "text",
-                  "text": "0983628932",
-                  "flex": 5,
-                  "size": "sm",
-                ]
-              ]
-            ],
-            [
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                [
-                  "type": "text",
-                  "text": "จำนวน",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000"
-                ],
-                [
-                  "type": "text",
-                  "text": "20.00 บาท",
-                  "flex": 5,
-                  "size": "sm",
-                ]
-              ]
-            ],
-            [
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                [
-                  "type": "text",
-                  "text": "เครือข่าย",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000"
-                ],
-                [
-                  "type": "text",
-                  "text": "TRUE",
-                  "flex": 5,
-                  "size": "sm",
-                ]
-              ]
-            ],
-            [
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                [
-                  "type": "text",
-                  "text": "เติมล่าสุด",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000"
-                ],
-                [
-                  "type": "text",
-                  "text": "20-06-2019 05:10:21",
-                  "flex": 5,
-                  "size": "sm",
-                ]
-              ]
-            ],
-            [
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                [
-                  "type": "text",
-                  "text": "รหัส",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000"
-                ],
-                [
-                  "type": "text",
-                  "text": "118157",
-                  "flex": 5,
-                  "size": "sm",
-                ]
-              ]
-            ],
-            [
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                [
-                  "type": "text",
-                  "text": "ชื่อ",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000",
-                ],
-                [
-                  "type": "text",
-                  "text": "กนกวรรณ งามเสมอ",
-                  "flex": 5,
-                  "size": "sm",
-                ]
+           [
+            "type" => "box",
+            "layout" => "baseline",
+            "margin" => "lg",
+            "contents" => [
+              [
+                "type" => "text",
+                "text" => "เบอร์โทร",
+                "align" => "start",
+                "color" => "#C3C3C3"
+              ],
+              [
+                "type" => "text",
+                "text" => "0983628932",
+                "align" => "end",
+                "color" => "#000000"
               ]
             ]
-          ]
-        ],
-        [
-          "type": "box",
-          "layout": "baseline",
-          "spacing": "sm",
-          "contents": [
-            [
-              "type": "text",
-              "text": "ที่อยู่",
-              "flex": 3,
-              "size": "sm",
-              "weight": "bold",
-              "color": "#FF0000"
-            ],
-            [
-              "type": "text",
-              "text": "39/2 ม.7  ต.แหลมบัว อ.นครชัยศรี จ.นครปฐม",
-              "flex": 5,
-              "size": "sm",
-            ]
-          ]
-        ],
-        [
-          "type": "box",
-          "layout": "baseline",
-          "spacing": "sm",
-          "contents": [
-            [
-              "type": "text",
-              "text": "พิกัด",
-              "flex": 3,
-              "size": "sm",
-              "weight": "bold",
-              "color": "#FF0000"
-            ],
-            [
-              "type": "text",
-              "text": " สถานที่",
-              "flex": 5,
-              "size": "sm",
+          ],
+          [
+            "type" => "box",
+            "layout" => "baseline",
+            "margin" => "lg",
+            "contents" => [
+              [
+                "type" => "text",
+                "text" => "เครือข่าย",
+                "color" => "#C3C3C3"
+              ],
+              [
+                "type" => "text",
+                "text" => "TRUE",
+                "align" => "end"
+              ]
             ]
           ]
         ]
-        ]
-      ];
+      ]
+    ]
+  ];
 
 
 
