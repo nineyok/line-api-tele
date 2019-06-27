@@ -21,11 +21,7 @@ $jsonFlex = [
         "type" => "box",
         "layout" => "vertical",
         "contents" => [
-          [
-            "type" => "separator",
-            "color" => "#C3C3C3"
-          ],
-          [
+           [
             "type" => "box",
             "layout" => "baseline",
             "margin" => "lg",
@@ -60,11 +56,6 @@ $jsonFlex = [
                 "align" => "end"
               ]
             ]
-          ],
-          [
-            "type" => "separator",
-            "margin" => "lg",
-            "color" => "#C3C3C3"
           ]
         ]
       ]
