@@ -333,7 +333,7 @@ $num=0;
 };
 		  
 		  
-                       $arrPostData['messages'][$num]['type'] = $flex_test;
+                       $arrPostData['messages'][$num][$flex_test];
 				/* 	   $arrPostData['messages'][$num]['altText'] = "Flex Message";
                        $arrPostData['messages'][$num]['contents'] = $detail; */
                        $num++;
