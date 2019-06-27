@@ -29,12 +29,14 @@ $jsonFlex = [
               [
                 "type" => "text",
                 "text" => "เบอร์โทร",
+				"flex" => 3,
                 "align" => "start",
                 "color" => "#C3C3C3"
               ],
               [
                 "type" => "text",
                 "text" => "0983628932",
+				"flex" => 5,
                 "align" => "end",
                 "color" => "#000000"
               ]
@@ -48,11 +50,13 @@ $jsonFlex = [
               [
                 "type" => "text",
                 "text" => "เครือข่าย",
+				"flex" => 3,
                 "color" => "#C3C3C3"
               ],
               [
                 "type" => "text",
                 "text" => "TRUE",
+				"flex" => 5,
                 "align" => "end"
               ]
             ]
