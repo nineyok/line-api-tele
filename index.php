@@ -102,7 +102,7 @@ $jsonFlex = [
                 ],
                 [
                   "type"=> "text",
-                  "text"=> "20-06-2019 05=>10=>21",
+                  "text"=> "20-06-2019 05:10:21",
                   "flex"=> 5,
                   "size"=> "sm",
                   "wrap"=> true
@@ -171,6 +171,33 @@ $jsonFlex = [
               "text"=> "39/2 ม.7  ต.แหลมบัว อ.นครชัยศรี จ.นครปฐม",
               "flex"=> 5,
               "size"=> "sm",
+              "wrap"=> true
+            ]
+          ]
+        ],
+        [
+          "type"=> "box",
+          "layout"=> "baseline",
+          "spacing"=> "sm",
+          "contents"=> [
+            [
+              "type"=> "text",
+              "text"=> "พิกัด",
+              "flex"=> 3,
+              "size"=> "sm",
+              "weight"=> "bold",
+              "color"=> "#FF0000"
+            ],
+            [
+              "type"=> "text",
+              "text"=> " สถานที่",
+              "flex"=> 5,
+              "size"=> "sm",
+              "action"=> [
+                "type"=> "uri",
+                "label"=> "สถานที่",
+                "uri"=> "https=>//www.google.co.th/maps/place/13.86767822,100.1506225"
+              ],
               "wrap"=> true
             ]
           ]
