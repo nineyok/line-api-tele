@@ -220,6 +220,7 @@ $jsonFlex = [
 array_push($arrayloop,$jsonFlex);
   }
 }
+$event = $request_array['events'][0];
 $num=0;
     foreach($arrayloop as $loop){
 //if ( sizeof($request_array['events']) > 0 ) {
@@ -228,7 +229,7 @@ $num=0;
 	$reply_token = "";
 	$post_body = "";
 	$send_result = "";
-    foreach ($request_array['events'] as $event) {
+    //foreach ($request_array['events'] as $event) {
         error_log(json_encode($event));
         $reply_message = '';
         $reply_token = $event['replyToken'];
@@ -247,7 +248,7 @@ $num=0;
 
         //echo "Result: ".$send_result."\r\n";
         
-    }
+    //}
 //}
 	}
 //echo "OK";
