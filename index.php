@@ -91,7 +91,7 @@ $jsonFlex = [
                 ],
                 [
                   "type"=> "text",
-                  "text"=> "TRUE".$k,
+                  "text"=> "TRUE",
                   "flex"=> 5,
                   "size"=> "sm",
                   "wrap"=> true
@@ -217,7 +217,9 @@ $jsonFlex = [
       ]
     ]
   ];
-array_push($arrayloop,$jsonFlex);
+    $arrPostData = array();
+    $arrPostData["detail"] = $jsonFlex;
+array_push($arrayloop,$arrPostData);
   }
 }
 $event = $request_array['events'][0]['replyToken'];
@@ -225,20 +227,24 @@ $num=0;
     foreach($arrayloop as $loop){
 //if ( sizeof($request_array['events']) > 0 ) {
 	$data = "";
-	$reply_message = "";
-	$reply_token = "";
+	//$reply_message = "";
+	//$reply_token = "";
 	$post_body = "";
 	$send_result = "";
+	$detail = "";
+	  foreach ($loop as $key => $value) {
+        if($key=="detail"){ $detail = $value; }   
+      }
     //foreach ($request_array['events'] as $event) {
         //error_log(json_encode($event));
-        $reply_message = '';
+        //$reply_message = '';
         //$reply_token = $event['replyToken'];
 
-
+  if($detail != ""){
         $data = [
             //'replyToken' => $reply_token,
 			'replyToken' => $event,
-            'messages' => [$jsonFlex]
+            'messages' => [$detail]
         ];
 
         //print_r($data);
@@ -248,7 +254,7 @@ $num=0;
         $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $post_body);
 
         //echo "Result: ".$send_result."\r\n";
-        
+  }
     //}
 //}
 	}
