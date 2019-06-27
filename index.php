@@ -1,27 +1,16 @@
 <?php
-
-
 $API_URL = 'https://api.line.me/v2/bot/message';
 $ACCESS_TOKEN = '8KKXb09F/89lBzY8yOcgezFynxFDbM+/BnZ5bTyiS9Xj59zzXZkXPET6UUU0BSSWXiLMuGk5cq5ZcNSjpdHjWwQ2Q4WL0S/cHncmGWunRPaY0LR0eMANsa6DnpQx/rfsJk41tJekEghWP0X4a3tYuwdB04t89/1O/w1cDnyilFU='; 
-//$channelSecret = 'cb255ecf3182c1a87a5897fa791f5973';
-
-
 $POST_HEADER = array('Content-Type: application/json', 'Authorization: Bearer ' . $ACCESS_TOKEN);
-
 $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
-
 $strexp = isset($_REQUEST['strexp']) ? $_REQUEST['strexp'] : '';
 $strexp = $request_array['events'][0]['message']['text'];
-
 $strchk = str_split($strexp);
-
 $arrayloop = array();
-
 if($strchk[0]=="$"){
   $arrstr  = explode( "$" , $strexp );
   for($k=1 ; $k < count( $arrstr ) ; $k++ ){
-
 $jsonFlex = [
     "type" => "flex",
     "altText" => "Hello Flex Message",
@@ -224,52 +213,18 @@ array_push($arrayloop,$arrPostData);
 }
 $arrPostData = array();
 $arrPostData['replyToken'] = $request_array['events'][0]['replyToken'];
-//$event = $request_array['events'][0]['replyToken'];
 $num=0;
     foreach($arrayloop as $loop){
-//if ( sizeof($request_array['events']) > 0 ) {
-	$data = "";
-	//$reply_message = "";
-	//$reply_token = "";
-	//$post_body = "";
-	$send_result = "";
 	$detail = "";
 	  foreach ($loop as $key => $value) {
         if($key=="detail"){ $detail = $value; }   
       }
-    //foreach ($request_array['events'] as $event) {
-        //error_log(json_encode($event));
-        //$reply_message = '';
-        //$reply_token = $event['replyToken'];
-
   if($detail != ""){
-        $data = [
-            //'replyToken' => $reply_token,
-			//'replyToken' => $event,
-            'messages' => [$detail]
-        ];
-
-        //print_r($data);
-		
-		        //$arrPostData['replyToken'][$num] = $event;
-                $arrPostData['messages'][$num] = $detail;
-                
-
-        //$arrPostData = json_encode($data, JSON_UNESCAPED_UNICODE);
-		//$arrPostData = json_encode($data);
-
-        
-$num++;
-        //echo "Result: ".$send_result."\r\n";
+                $arrPostData['messages'][$num] = $detail;                     
+                $num++;
   }
-    //}
-//}
 	}
-//echo "OK";
 $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $arrPostData);
-
-
-
 function send_reply_message($url, $post_header, $arrPostData)
 {
     $ch = curl_init($url);
@@ -280,8 +235,6 @@ function send_reply_message($url, $post_header, $arrPostData)
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     $result = curl_exec($ch);
     curl_close($ch);
-
     return $result;
 }
-
 ?>
