@@ -64,7 +64,117 @@ $jsonFlex = [
                   "wrap"=> true
               ]
             ]
+          ],
+            [
+              "type"=> "box",
+              "layout"=> "baseline",
+              "spacing"=> "sm",
+              "contents"=> [
+                [
+                  "type"=> "text",
+                  "text"=> "เครือข่าย",
+                  "flex"=> 3,
+                  "size"=> "sm",
+                  "weight"=> "bold",
+                  "color"=> "#FF0000"
+                ],
+                [
+                  "type"=> "text",
+                  "text"=> "TRUE",
+                  "flex"=> 5,
+                  "size"=> "sm",
+                  "wrap"=> true
+                ]
+              ]
+            ],
+            [
+              "type"=> "box",
+              "layout"=> "baseline",
+              "spacing"=> "sm",
+              "contents"=> [
+                [
+                  "type"=> "text",
+                  "text"=> "เติมล่าสุด",
+                  "flex"=> 3,
+                  "size"=> "sm",
+                  "weight"=> "bold",
+                  "color"=> "#FF0000"
+                ],
+                [
+                  "type"=> "text",
+                  "text"=> "20-06-2019 05=>10=>21",
+                  "flex"=> 5,
+                  "size"=> "sm",
+                  "wrap"=> true
+                ]
+              ]
+            ],
+            [
+              "type"=> "box",
+              "layout"=> "baseline",
+              "spacing"=> "sm",
+              "contents"=> [
+                [
+                  "type"=> "text",
+                  "text"=> "รหัส",
+                  "flex"=> 3,
+                  "size"=> "sm",
+                  "weight"=> "bold",
+                  "color"=> "#FF0000"
+                ],
+                [
+                  "type"=> "text",
+                  "text"=> "118157",
+                  "flex"=> 5,
+                  "size"=> "sm",
+                  "wrap"=> true
+                ]
+              ]
+            ],
+            [
+              "type"=> "box",
+              "layout"=> "baseline",
+              "spacing"=> "sm",
+              "contents"=> [
+                [
+                  "type"=> "text",
+                  "text"=> "ชื่อ",
+                  "flex"=> 3,
+                  "size"=> "sm",
+                  "weight"=> "bold",
+                  "color"=> "#FF0000",
+                ],
+                [
+                  "type"=> "text",
+                  "text"=> "กนกวรรณ งามเสมอ",
+                  "flex"=> 5,
+                  "size"=> "sm",
+                  "wrap"=> true
+                ]
+             ]
+        ],
+        [
+          "type"=> "box",
+          "layout"=> "baseline",
+          "spacing"=> "sm",
+          "contents"=> [
+            [
+              "type"=> "text",
+              "text"=> "ที่อยู่",
+              "flex"=> 3,
+              "size"=> "sm",
+              "weight"=> "bold",
+              "color"=> "#FF0000"
+            ],
+            [
+              "type"=> "text",
+              "text"=> "39/2 ม.7  ต.แหลมบัว อ.นครชัยศรี จ.นครปฐม",
+              "flex"=> 5,
+              "size"=> "sm",
+              "wrap"=> true
+            ]
           ]
+        ]
         ]
       ]
     ]
