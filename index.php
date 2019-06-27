@@ -221,7 +221,7 @@ array_push($arrayloop,$jsonFlex);
   }
 }
     foreach($arrayloop as $loop){
-if ( sizeof($request_array['events']) > 0 ) {
+//if ( sizeof($request_array['events']) > 0 ) {
     foreach ($request_array['events'] as $event) {
         error_log(json_encode($event));
         $reply_message = '';
@@ -242,7 +242,7 @@ if ( sizeof($request_array['events']) > 0 ) {
         //echo "Result: ".$send_result."\r\n";
         
     }
-}
+//}
 	}
 //echo "OK";
 
