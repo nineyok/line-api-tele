@@ -190,12 +190,13 @@ $jsonFlex = [
             ],
             [
               "type"=> "text",
-              "text"=> "View Details",
+              "text"=> "Location",
               "flex"=> 5,
               "size"=> "sm",
+			  "color" => "#0084B6",
               "action"=> [
                 "type"=> "uri",
-                "label"=> "View Details",
+                "label"=> "Location",
                 "uri"=> "https://www.google.co.th/maps/place/13.86767822,100.1506225"
               ]
             ]
