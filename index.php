@@ -13,7 +13,7 @@ $strexp = $arrJson['events'][0]['message']['text'];
 
    $id = $arrJson['events'][0]['source']['groupId'];
    
-   if ($id == "Cc7400808e50a43c67c8672750581723b") {
+   //if ($id == "Cc7400808e50a43c67c8672750581723b") {
 
 $strchk = str_split($strexp);
 
@@ -158,7 +158,7 @@ function getContentUrl($url) {
             curl_close ($ch);
             return $file;
           } 
-}
+//}
 ?>
 
 
