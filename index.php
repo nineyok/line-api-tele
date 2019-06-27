@@ -91,7 +91,7 @@ $jsonFlex = [
                 ],
                 [
                   "type"=> "text",
-                  "text"=> "TRUE",
+                  "text"=> "TRUE".$k,
                   "flex"=> 5,
                   "size"=> "sm",
                   "wrap"=> true
