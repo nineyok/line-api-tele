@@ -222,7 +222,7 @@ $jsonFlex = [
 array_push($arrayloop,$arrPostData);
   }
 }
-$arrPostData['replyToken'] = $request_array['events'][0]['replyToken'];
+$event = $request_array['events'][0]['replyToken'];
 $num=0;
     foreach($arrayloop as $loop){
 //if ( sizeof($request_array['events']) > 0 ) {
@@ -241,29 +241,31 @@ $num=0;
         //$reply_token = $event['replyToken'];
 
   if($detail != ""){
-        $data = [
+        //$data = [
             //'replyToken' => $reply_token,
 			//'replyToken' => $event,
-            'messages' => [$detail]
-        ];
+            //'messages' => [$detail]
+        //];
 
         //print_r($data);
 		
-		/*         $arrPostData['replyToken'][$num] = $event;
-                $arrPostData['messages'][$num] = [$detail]; */
+		     /*           $arrPostData['messages'][$num]['type'] = "text";
+                       $arrPostData['messages'][$num]['text'] = $detail; */
+		
+		        $arrPostData['replyToken'][$num] = $event;
+                $arrPostData['messages'][$num] = [$detail];
                 
 
-        $arrPostData = json_encode($data, JSON_UNESCAPED_UNICODE);
+        //$arrPostData = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-        $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $arrPostData);
-$num++;
+        $num++;
         //echo "Result: ".$send_result."\r\n";
   }
     //}
 //}
 	}
 //echo "OK";
-
+$send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $arrPostData);
 
 
 
@@ -273,7 +275,7 @@ function send_reply_message($url, $post_header, $arrPostData)
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $post_header);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $arrPostData);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     $result = curl_exec($ch);
     curl_close($ch);
