@@ -248,10 +248,14 @@ $num=0;
         ];
 
         //print_r($data);
+		
+		        $arrPostData['replyToken'][$num] = $event;
+                $arrPostData['messages'][$num] = [$detail];
+                $num++;
 
-        $arrPostData = json_encode($data, JSON_UNESCAPED_UNICODE);
+        //$arrPostData = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-        $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $arrPostData);
+        //$send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $arrPostData);
 
         //echo "Result: ".$send_result."\r\n";
   }
@@ -263,18 +267,18 @@ $num=0;
 
 
 
-function send_reply_message($url, $post_header, $arrPostData)
-{
+//function send_reply_message($url, $post_header, $arrPostData)
+//{
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $post_header);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $arrPostData);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData, JSON_UNESCAPED_UNICODE));
     //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     $result = curl_exec($ch);
     curl_close($ch);
 
-    return $result;
-}
+    //return $result;
+//}
 
 ?>
