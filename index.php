@@ -276,6 +276,7 @@ function send_reply_message($url, $post_header, $post_body)
 	
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $POST_HEADER);
