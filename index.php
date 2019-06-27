@@ -282,7 +282,7 @@ $txt = [
                 [
                   "type"=> "text",
                   "text"=> $idcard,
-                  "flex"=> 4,
+                  "flex"=> 3,
                   "size"=> "sm",
                   "wrap"=> true
                 ]
