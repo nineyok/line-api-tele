@@ -188,11 +188,6 @@ $jsonFlex = [
               "text": " สถานที่",
               "flex": 5,
               "size": "sm",
-              "action": [
-                "type": "uri",
-                "label": "สถานที่",
-                "uri": "https://www.google.co.th/maps/place/13.86767822,100.1506225"
-              ]
             ]
           ]
         ]
