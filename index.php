@@ -12,122 +12,208 @@ $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 
 $jsonFlex = [
-    "type" => "flex",
-    "altText" => "Hello Flex Message",
-    "contents" => [
-      "type" => "bubble",
-      "direction" => "ltr",
-      "header" => [
-        "type" => "box",
-        "layout" => "vertical",
-        "contents" => [
-          [
-            "type" => "text",
-            "text" => "Purchase",
-            "size" => "lg",
-            "align" => "start",
-            "weight" => "bold",
-            "color" => "#009813"
-          ],
-          [
-            "type" => "text",
-            "text" => "฿ 100.00",
-            "size" => "3xl",
-            "weight" => "bold",
-            "color" => "#000000"
-          ],
-          [
-            "type" => "text",
-            "text" => "Rabbit Line Pay",
-            "size" => "lg",
-            "weight" => "bold",
-            "color" => "#000000"
-          ],
-          [
-            "type" => "text",
-            "text" => "2019.02.14 21:47 (GMT+0700)",
-            "size" => "xs",
-            "color" => "#B2B2B2"
-          ],
-          [
-            "type" => "text",
-            "text" => "Payment complete.",
-            "margin" => "lg",
-            "size" => "lg",
-            "color" => "#000000"
-          ]
-        ]
-      ],
-      "body" => [
-        "type" => "box",
-        "layout" => "vertical",
-        "contents" => [
-          [
-            "type" => "separator",
-            "color" => "#C3C3C3"
-          ],
-          [
-            "type" => "box",
-            "layout" => "baseline",
-            "margin" => "lg",
-            "contents" => [
-              [
-                "type" => "text",
-                "text" => "Merchant",
-                "align" => "start",
-                "color" => "#C3C3C3"
-              ],
-              [
-                "type" => "text",
-                "text" => "BTS 01",
-                "align" => "end",
-                "color" => "#000000"
+     "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "margin": "lg",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "เบอร์โทร",
+                  "flex": 3,
+                  "size": "sm",
+                  "weight": "bold",
+                  "color": "#FF0000"
+                },
+                {
+                  "type": "text",
+                  "text": "0983628932",
+                  "flex": 5,
+                  "size": "sm",
+                  "wrap": true
+                }
               ]
-            ]
-          ],
-          [
-            "type" => "box",
-            "layout" => "baseline",
-            "margin" => "lg",
-            "contents" => [
-              [
-                "type" => "text",
-                "text" => "New balance",
-                "color" => "#C3C3C3"
-              ],
-              [
-                "type" => "text",
-                "text" => "฿ 45.57",
-                "align" => "end"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "จำนวน",
+                  "flex": 3,
+                  "size": "sm",
+                  "weight": "bold",
+                  "color": "#FF0000"
+                },
+                {
+                  "type": "text",
+                  "text": "20.00 บาท",
+                  "flex": 5,
+                  "size": "sm",
+                  "wrap": true
+                }
               ]
-            ]
-          ],
-          [
-            "type" => "separator",
-            "margin" => "lg",
-            "color" => "#C3C3C3"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "เครือข่าย",
+                  "flex": 3,
+                  "size": "sm",
+                  "weight": "bold",
+                  "color": "#FF0000"
+                },
+                {
+                  "type": "text",
+                  "text": "TRUE",
+                  "flex": 5,
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "เติมล่าสุด",
+                  "flex": 3,
+                  "size": "sm",
+                  "weight": "bold",
+                  "color": "#FF0000"
+                },
+                {
+                  "type": "text",
+                  "text": "20-06-2019 05:10:21",
+                  "flex": 5,
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "รหัส",
+                  "flex": 3,
+                  "size": "sm",
+                  "weight": "bold",
+                  "color": "#FF0000"
+                },
+                {
+                  "type": "text",
+                  "text": "118157",
+                  "flex": 5,
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "ชื่อ",
+                  "flex": 3,
+                  "size": "sm",
+                  "weight": "bold",
+                  "color": "#FF0000",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "กนกวรรณ งามเสมอ",
+                  "flex": 5,
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
           ]
-        ]
-      ],
-      "footer" => [
-        "type" => "box",
-        "layout" => "horizontal",
-        "contents" => [
-          [
-            "type" => "text",
-            "text" => "View Details",
-            "size" => "lg",
-            "align" => "start",
-            "color" => "#0084B6",
-            "action" => [
-              "type" => "uri",
-              "label" => "View Details",
-              "uri" => "https://google.co.th/"
-            ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "ที่อยู่",
+              "flex": 3,
+              "size": "sm",
+              "weight": "bold",
+              "color": "#FF0000"
+            },
+            {
+              "type": "text",
+              "text": "39/2 ม.7  ต.แหลมบัว อ.นครชัยศรี จ.นครปฐม",
+              "flex": 5,
+              "size": "sm",
+              "wrap": true
+            }
           ]
-        ]
+        },
+        {
+          "type": "box",
+          "layout": "baseline",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "พิกัด",
+              "flex": 3,
+              "size": "sm",
+              "weight": "bold",
+              "color": "#FF0000"
+            },
+            {
+              "type": "text",
+              "text": " สถานที่",
+              "flex": 5,
+              "size": "sm",
+              "action": {
+                "type": "uri",
+                "label": "สถานที่",
+                "uri": "https://www.google.co.th/maps/place/13.86767822,100.1506225"
+              },
+              "wrap": true
+            }
+          ]
+        }
       ]
-    ]
+    }
+  }
   ];
 
 
