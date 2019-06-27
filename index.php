@@ -39,7 +39,6 @@ $jsonFlex = [
                   "text": "0983628932",
                   "flex": 5,
                   "size": "sm",
-                  "wrap": true
                 ]
               ]
             ],
@@ -61,7 +60,6 @@ $jsonFlex = [
                   "text": "20.00 บาท",
                   "flex": 5,
                   "size": "sm",
-                  "wrap": true
                 ]
               ]
             ],
@@ -83,7 +81,6 @@ $jsonFlex = [
                   "text": "TRUE",
                   "flex": 5,
                   "size": "sm",
-                  "wrap": true
                 ]
               ]
             ],
@@ -105,7 +102,6 @@ $jsonFlex = [
                   "text": "20-06-2019 05:10:21",
                   "flex": 5,
                   "size": "sm",
-                  "wrap": true
                 ]
               ]
             ],
@@ -127,7 +123,6 @@ $jsonFlex = [
                   "text": "118157",
                   "flex": 5,
                   "size": "sm",
-                  "wrap": true
                 ]
               ]
             ],
@@ -143,14 +138,12 @@ $jsonFlex = [
                   "size": "sm",
                   "weight": "bold",
                   "color": "#FF0000",
-                  "wrap": true
                 ],
                 [
                   "type": "text",
                   "text": "กนกวรรณ งามเสมอ",
                   "flex": 5,
                   "size": "sm",
-                  "wrap": true
                 ]
               ]
             ]
@@ -174,7 +167,6 @@ $jsonFlex = [
               "text": "39/2 ม.7  ต.แหลมบัว อ.นครชัยศรี จ.นครปฐม",
               "flex": 5,
               "size": "sm",
-              "wrap": true
             ]
           ]
         ],
@@ -201,14 +193,11 @@ $jsonFlex = [
                 "label": "สถานที่",
                 "uri": "https://www.google.co.th/maps/place/13.86767822,100.1506225"
               ],
-              "wrap": true
             ]
           ]
         ]
         ]
-      ]
-    ]
-  ];
+      ];
 
 
 
