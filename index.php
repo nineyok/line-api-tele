@@ -1,375 +1,177 @@
 <?php
 
-$strAccessToken = "8KKXb09F/89lBzY8yOcgezFynxFDbM+/BnZ5bTyiS9Xj59zzXZkXPET6UUU0BSSWXiLMuGk5cq5ZcNSjpdHjWwQ2Q4WL0S/cHncmGWunRPaY0LR0eMANsa6DnpQx/rfsJk41tJekEghWP0X4a3tYuwdB04t89/1O/w1cDnyilFU=";
 
-$content = file_get_contents('php://input');
-$arrJson = json_decode($content, true);
-$strUrl = "https://api.line.me/v2/bot/message/reply";
-$arrHeader = array();
-$arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {$strAccessToken}";
-$strexp = isset($_REQUEST['strexp']) ? $_REQUEST['strexp'] : '';
-$strexp = $arrJson['events'][0]['message']['text'];
-
-   $id = $arrJson['events'][0]['source']['groupId'];
-   
-   //if ($id == "Cc7400808e50a43c67c8672750581723b") {
-
-$strchk = str_split($strexp);
-
-$arrayloop = array();
-
-if($strchk[0]=="$"){
-  $arrstr  = explode( "$" , $strexp );
-  for($k=1 ; $k < count( $arrstr ) ; $k++ ){
-      $strchk = "$".$arrstr[$k];
-      $idcard = substr($strchk,1);
-      $chkid = substr($idcard,0,10);
-	   if(is_numeric($chkid)){
-              $countid = strlen($chkid);
-              if($countid == "10"){
-                $idcard = $chkid;
-              }
-            }
-	  if(is_numeric($idcard)){
-	     if ($idcard != "") {
-     $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/selecttel.php?uid=".$idcard;	 
-     $isRequestHeader = FALSE;
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $productivity = curl_exec($ch);
-        curl_close($ch);
-        //$json_a = json_decode($productivity, true);
-        $arrbn_id = explode("#", $productivity);
-        //print_r($arrbn_id);
-//        if (is_numeric(substr($arrbn_id[0], 0, 1))) {
-
-//        echo $objResult["customer_name"];
-//        echo "#" . $objResult["Latitude"];
-//        echo "#" . $objResult["Longitude"];
-//        echo "#" . $objResult["province"];
-//        echo "#" . $objResult["contact_tel"];
+$API_URL = 'https://api.line.me/v2/bot/message';
+$ACCESS_TOKEN = '8KKXb09F/89lBzY8yOcgezFynxFDbM+/BnZ5bTyiS9Xj59zzXZkXPET6UUU0BSSWXiLMuGk5cq5ZcNSjpdHjWwQ2Q4WL0S/cHncmGWunRPaY0LR0eMANsa6DnpQx/rfsJk41tJekEghWP0X4a3tYuwdB04t89/1O/w1cDnyilFU='; 
+$channelSecret = 'cb255ecf3182c1a87a5897fa791f5973';
 
 
+$POST_HEADER = array('Content-Type: application/json', 'Authorization: Bearer ' . $ACCESS_TOKEN);
 
-        $Mobile_Number = $arrbn_id[0]; //เบอร์โทร
-	    $Service_Type = $arrbn_id[1]; //เครือข่าย
-        $Start_date = $arrbn_id[2]; // วันที่
-		$Real_Service_Amount = $arrbn_id[3];  //จำนวนเงิน
-        $Topup_Name = substr($arrbn_id[4], 2); // รหัสตู้
-		$customer_name = $arrbn_id[5]; // ชื่อ
-		$latitude = $arrbn_id[6]; // lat
-		$longitude = $arrbn_id[7]; // lon
-        $addresscustomer = $arrbn_id[8]; // ที่อยู่		
-       
-		
-		$txt = "";
-		$txt = "เบอร์โทร : ". $Mobile_Number . "\r\n"
-		        . "จำนวน : " . $Real_Service_Amount . "  บาท" ."\r\n"
-                . "เครือข่าย : " . $Service_Type . "\r\n"
-				. "เติมล่าสุด : " . $Start_date . "\r\n"
-                . "รหัส : " . $Topup_Name . "\r\n"
-				. "ชื่อ : " . $customer_name . "\r\n"
-                . "ที่อยู่ : " . $addresscustomer . "\r\n"
-                . "พิกัด : https://www.google.co.th/maps/place/".$latitude.",".$longitude;
-		
-		  if($Topup_Name!=""){
-                      $arrPostData = array();
-                      $arrPostData["idcard"] = $idcard;
-                      $arrPostData["detail"] = $txt;
-                      $arrPostData["status"] = $status;
-                      array_push($arrayloop,$arrPostData);
-                  }else{
-                    $txt = "ไม่พบข้อมูลที่ค้นหา : ".$idcard;
-                      
-                      $arrPostData = array();
-                      $arrPostData["idcard"] = $idcard;
-                      $arrPostData["detail"] = $txt;
-                      $arrPostData["status"] = "0";
-                      array_push($arrayloop,$arrPostData);
-                  }
+$request = file_get_contents('php://input');   // Get request content
+$request_array = json_decode($request, true);   // Decode JSON to Array
+
+$jsonFlex = [
+    "type" => "flex",
+    "altText" => "Hello Flex Message",
+    "contents" => [
+      "type" => "bubble",
+      "direction" => "ltr",
+      "header" => [
+        "type" => "box",
+        "layout" => "vertical",
+        "contents" => [
+          [
+            "type" => "text",
+            "text" => "Purchase",
+            "size" => "lg",
+            "align" => "start",
+            "weight" => "bold",
+            "color" => "#009813"
+          ],
+          [
+            "type" => "text",
+            "text" => "฿ 100.00",
+            "size" => "3xl",
+            "weight" => "bold",
+            "color" => "#000000"
+          ],
+          [
+            "type" => "text",
+            "text" => "Rabbit Line Pay",
+            "size" => "lg",
+            "weight" => "bold",
+            "color" => "#000000"
+          ],
+          [
+            "type" => "text",
+            "text" => "2019.02.14 21:47 (GMT+0700)",
+            "size" => "xs",
+            "color" => "#B2B2B2"
+          ],
+          [
+            "type" => "text",
+            "text" => "Payment complete.",
+            "margin" => "lg",
+            "size" => "lg",
+            "color" => "#000000"
+          ]
+        ]
+      ],
+      "body" => [
+        "type" => "box",
+        "layout" => "vertical",
+        "contents" => [
+          [
+            "type" => "separator",
+            "color" => "#C3C3C3"
+          ],
+          [
+            "type" => "box",
+            "layout" => "baseline",
+            "margin" => "lg",
+            "contents" => [
+              [
+                "type" => "text",
+                "text" => "Merchant",
+                "align" => "start",
+                "color" => "#C3C3C3"
+              ],
+              [
+                "type" => "text",
+                "text" => "BTS 01",
+                "align" => "end",
+                "color" => "#000000"
+              ]
+            ]
+          ],
+          [
+            "type" => "box",
+            "layout" => "baseline",
+            "margin" => "lg",
+            "contents" => [
+              [
+                "type" => "text",
+                "text" => "New balance",
+                "color" => "#C3C3C3"
+              ],
+              [
+                "type" => "text",
+                "text" => "฿ 45.57",
+                "align" => "end"
+              ]
+            ]
+          ],
+          [
+            "type" => "separator",
+            "margin" => "lg",
+            "color" => "#C3C3C3"
+          ]
+        ]
+      ],
+      "footer" => [
+        "type" => "box",
+        "layout" => "horizontal",
+        "contents" => [
+          [
+            "type" => "text",
+            "text" => "View Details",
+            "size" => "lg",
+            "align" => "start",
+            "color" => "#0084B6",
+            "action" => [
+              "type" => "uri",
+              "label" => "View Details",
+              "uri" => "https://google.co.th/"
+            ]
+          ]
+        ]
+      ]
+    ]
+  ];
+
+
+
+if ( sizeof($request_array['events']) > 0 ) {
+    foreach ($request_array['events'] as $event) {
+        error_log(json_encode($event));
+        $reply_message = '';
+        $reply_token = $event['replyToken'];
+
+
+        $data = [
+            'replyToken' => $reply_token,
+            'messages' => [$jsonFlex]
+        ];
+
+        print_r($data);
+
+        $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+        $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $post_body);
+
+        echo "Result: ".$send_result."\r\n";
+        
     }
-  }else{
-                  $arrPostData = array();
-                  $arrPostData["idcard"] = $idcard;
-                  $arrPostData["detail"] = "ไม่พบข้อมูล : ".$idcard;
-                  $arrPostData["status"] = "0";
-                  array_push($arrayloop,$arrPostData);
-              }
-  }
 }
 
+echo "OK";
 
-$arrPostData = array();
-$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-$num=0;
-    foreach($arrayloop as $loop){
-        $idcard = "";
-        $status = "";
-        $detail = "";
-      foreach ($loop as $key => $value) {
-        if($key=="idcard"){ $idcard = $value; }
-        if($key=="status"){ $status = $value; }
-        if($key=="detail"){ $detail = $value; }   
-      }
-      if($status=="1"){
-                       $arrPostData['messages'][$num]['type'] = "image";
-                       $arrPostData['messages'][$num]['originalContentUrl'] = "https://www.kitsada.com/pic/".$idcard.".jpg";
-                       $arrPostData['messages'][$num]['previewImageUrl'] = "https://www.kitsada.com/pic/".$idcard.".jpg";
-                       $num++;
-      }
-      if($status=="3"){
-                       $arrPostData['messages'][$num]['type'] = "image";
-                       $arrPostData['messages'][$num]['originalContentUrl'] = "https://www.kitsada.com/pic/".$idcard.".jpg";
-                       $arrPostData['messages'][$num]['previewImageUrl'] = "https://www.kitsada.com/pic/".$idcard.".jpg";
-                       $num++;
-      }
-      if($detail != ""){
-		  
-		  $flex_test = {
-  "type": "flex",
-  "altText": "Flex Message",
-  "contents": {
-    "type": "bubble",
-    "direction": "ltr",
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "box",
-          "layout": "vertical",
-          "spacing": "sm",
-          "margin": "lg",
-          "contents": [
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "เบอร์โทร",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000"
-                },
-                {
-                  "type": "text",
-                  "text": "0983628932",
-                  "flex": 5,
-                  "size": "sm",
-                  "wrap": true
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "จำนวน",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000"
-                },
-                {
-                  "type": "text",
-                  "text": "20.00 บาท",
-                  "flex": 5,
-                  "size": "sm",
-                  "wrap": true
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "เครือข่าย",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000"
-                },
-                {
-                  "type": "text",
-                  "text": "TRUE",
-                  "flex": 5,
-                  "size": "sm",
-                  "wrap": true
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "เติมล่าสุด",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000"
-                },
-                {
-                  "type": "text",
-                  "text": "20-06-2019 05:10:21",
-                  "flex": 5,
-                  "size": "sm",
-                  "wrap": true
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "รหัส",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000"
-                },
-                {
-                  "type": "text",
-                  "text": "118157",
-                  "flex": 5,
-                  "size": "sm",
-                  "wrap": true
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "ชื่อ",
-                  "flex": 3,
-                  "size": "sm",
-                  "weight": "bold",
-                  "color": "#FF0000",
-                  "wrap": true
-                },
-                {
-                  "type": "text",
-                  "text": "กนกวรรณ งามเสมอ",
-                  "flex": 5,
-                  "size": "sm",
-                  "wrap": true
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "box",
-          "layout": "baseline",
-          "spacing": "sm",
-          "contents": [
-            {
-              "type": "text",
-              "text": "ที่อยู่",
-              "flex": 3,
-              "size": "sm",
-              "weight": "bold",
-              "color": "#FF0000"
-            },
-            {
-              "type": "text",
-              "text": "39/2 ม.7  ต.แหลมบัว อ.นครชัยศรี จ.นครปฐม",
-              "flex": 5,
-              "size": "sm",
-              "wrap": true
-            }
-          ]
-        },
-        {
-          "type": "box",
-          "layout": "baseline",
-          "spacing": "sm",
-          "contents": [
-            {
-              "type": "text",
-              "text": "พิกัด",
-              "flex": 3,
-              "size": "sm",
-              "weight": "bold",
-              "color": "#FF0000"
-            },
-            {
-              "type": "text",
-              "text": " สถานที่",
-              "flex": 5,
-              "size": "sm",
-              "action": {
-                "type": "uri",
-                "label": "สถานที่",
-                "uri": "https://www.google.co.th/maps/place/13.86767822,100.1506225"
-              },
-              "wrap": true
-            }
-          ]
-        }
-      ]
-    }
-  }
-};
-		  
-		  
-                       $arrPostData['messages'][$num]['type'] = "text";
-					   $arrPostData['messages'][$num]['text'] = "subscribe";
-					   $arrPostData['messages'][$num]['subscribe'] = $flex_test;
-				/* 	   $arrPostData['messages'][$num]['altText'] = "Flex Message";
-                       $arrPostData['messages'][$num]['contents'] = $detail; */
-                       $num++;
-      }
-    }
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,$strUrl);
-curl_setopt($ch, CURLOPT_HEADER, false);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-$result = curl_exec($ch);
-curl_close ($ch);
-function getContentUrl($url) {
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
-            curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/21.0 (compatible; MSIE 8.01; Windows NT 5.0)');
-            curl_setopt($ch, CURLOPT_TIMEOUT, 200);
-            curl_setopt($ch, CURLOPT_AUTOREFERER, false);
-            curl_setopt($ch, CURLOPT_REFERER, 'http://google.com');
-            curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);    // Follows redirect responses
-            // gets the file content, trigger error if false
-            $file = curl_exec($ch);
-            if($file === false) trigger_error(curl_error($ch));
-            curl_close ($ch);
-            return $file;
-          } 
-//}
+
+
+
+function send_reply_message($url, $post_header, $post_body)
+{
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $post_header);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_body);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    $result = curl_exec($ch);
+    curl_close($ch);
+
+    return $result;
+}
+
 ?>
-
-
-
