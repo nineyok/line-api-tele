@@ -196,7 +196,7 @@ $jsonFlex = [
               "action"=> [
                 "type"=> "uri",
                 "label"=> "View Details",
-                "uri"=> "https=>//www.google.co.th/maps/place/13.86767822,100.1506225"
+                "uri"=> "https://www.google.co.th/maps/place/13.86767822,100.1506225"
               ]
             ]
           ]
