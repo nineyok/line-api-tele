@@ -7,8 +7,8 @@ $request_array = json_decode($request, true);   // Decode JSON to Array
 $strexp = isset($_REQUEST['strexp']) ? $_REQUEST['strexp'] : '';
 $strexp = $request_array['events'][0]['message']['text'];
 
-   $id = $arrJson['events'][0]['source']['groupId'];
-   $u_id = $arrJson['events'][0]['source']['userId'];
+   $id = $request_array['events'][0]['source']['groupId'];
+   $u_id = $request_array['events'][0]['source']['userId'];
    
    if (($id == "Cc7400808e50a43c67c8672750581723b")  OR ($u_id == "U3d1b9b9d84ba65ba1938c08fd6b056ee")){
 
