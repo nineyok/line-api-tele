@@ -252,7 +252,7 @@ $num=0;
         //print_r($data);
 		
 		        //$arrPostData['replyToken'][$num] = $event;
-                $arrPostData['messages'][$num] = $detail;
+                $arrPostData['messages'][$num] = [$detail];
                 
 
         //$arrPostData = json_encode($data, JSON_UNESCAPED_UNICODE);
