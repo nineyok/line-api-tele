@@ -273,12 +273,19 @@ $txt = [
             "contents" => [
               [
                   "type"=> "text",
-                  "text"=> "ไม่พบข้อมูลที่ค้นหา : ".$idcard,
+                  "text"=> "ไม่พบข้อมูลที่ค้นหา",
                   "flex"=> 3,
                   "size"=> "sm",
                   "weight"=> "bold",
                   "color"=> "#FF0000"
-              ]
+              ],
+                [
+                  "type"=> "text",
+                  "text"=> $idcard,
+                  "flex"=> 5,
+                  "size"=> "sm",
+                  "wrap"=> true
+                ]
 				  ]
 				  ]
 				  ]
